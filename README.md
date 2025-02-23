@@ -14,6 +14,8 @@ A cool physics and art simulation I created for fun. Good for learning HTML canv
 - **Realistic wall collisions** with momentum preservation
 - **Dynamic color changes** on collisions
 - **Responsive design** that adapts to the window size of your browser/device
+- **Pause/Resume functionality** with interactive button
+- **Speed control** with variable multipliers (0.5x, 1x, 2x)
 
 ## Quick Start
 1. Clone repo:
@@ -25,17 +27,24 @@ A cool physics and art simulation I created for fun. Good for learning HTML canv
 Edit main.js to modify in main.js:
 ```js
 // Change number of balls
-while(balls.length < 30) { // ← Modify this number
+while (balls.length < 30) { // ← Modify this number
 
 // Adjust speed ranges
-random(-7,7) // ← Modify Velocity values
+random(-7, 7) // ← Modify velocity values
 
 // Modify size range
-random(10,20) // ← Modify Ball sizes
+random(10, 20) // ← Modify ball sizes
 
 // Change background fade effect
 ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
+
+// Adjust speed multiplier
+let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
 ```
+
+## Controls
+- Pause/Resume Button: Toggle animation state
+- Speed Button: Cycle through 0.5x, 1x, and 2x speeds
 
 ## Live Demo
 Hosted on GitHub: [Demo Website](https://alicelee2735.github.io/Cosmic-Bouncer/)
