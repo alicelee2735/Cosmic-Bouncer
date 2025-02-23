@@ -1,0 +1,75 @@
+index.html
+
+    Added a button element below the canvas:
+
+
+    <button id="pauseResumeBtn">Pause</button>
+
+    Added CSS styling for the button:
+
+
+    button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+
+main.js
+
+    Added global variables to manage the animation state:
+
+
+    let animationId;
+    let isPaused = false;
+
+
+    Modified the loop() function to respect the pause state:
+
+
+    function loop() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+    ctx.fillRect(0, 0, width, height);
+    while (balls.length < 30) {
+        let ball = new Ball(
+            random(0, width),
+            random(0, height),
+            random(-7, 7),
+            random(-7, 7),
+            randomColor(),
+            random(10, 20)
+        );
+        balls.push(ball);
+    }
+
+    for (let i = 0; i < balls.length; i++) {
+        let ball = balls[i];
+        ball.draw();
+        ball.update();
+        ball.collisionDetect();
+    }
+
+    if (!isPaused) {
+        animationId = requestAnimationFrame(loop);
+    }
+
+    }
+
+    Added a click event listener to the button to toggle pause/resume:
+
+
+    document.getElementById('pauseResumeBtn').addEventListener('click', function() {
+    isPaused = !isPaused;
+    if (isPaused) {
+    cancelAnimationFrame(animationId);
+    this.textContent = 'Resume';
+    } else {
+    loop();
+    this.textContent = 'Pause';
+    }
+    });
+
+
+
+Additionally, I added spaces in some parts of the code for better readability and fixed minor issues to improve clarity and make the code easier to understand.
