@@ -6,7 +6,8 @@
 
 A cool physics and art simulation I created for fun. Good for learning HTML canvas animations and basic game physics :)
 
-![Untitled design (1)](https://github.com/user-attachments/assets/6db7a1b4-dde5-4653-96ba-d0dadb7481b8)
+![gif-demo](https://github.com/user-attachments/assets/986e1f4d-76bc-4760-bc78-c5cd12456786)
+
 
 ## Highlights
 - **Realistic wall collisions** with momentum preservation
