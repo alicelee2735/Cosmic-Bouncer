@@ -1,4 +1,4 @@
-New Changes made:
+#### New Changes made by [Lucas](https://github.com/Lucaas-o):
 - Added "Speed control" and "Pause/Resume" to Highlights in README.md
 - Included new controls section for the new buttons
 - Updated Customization section with speed multiplier
@@ -9,12 +9,12 @@ New Changes made:
 #### index.html
 
 Added two button elements below the canvas:
-
+```html
 <button id="pauseResumeBtn">Pause</button>
 <button id="speedBtn">Speed: 1x</button>
-
+```
 Added CSS styling for buttons:
-
+```css
 button {
 position: absolute;
 bottom: 20px;
@@ -33,21 +33,21 @@ left: 20px;
 #speedBtn {
 right: 20px;
 }
-
-main.js
+```
+#### main.js
 Added global variables to manage animation state and speed:
-
+```js
 let animationId;
 let isPaused = false;
 let speedMultiplier = 1; // Default speed multiplier
-
+```
 Modified Ball.prototype.update to use speed multiplier:
-
+```js
 this.x += this.velX * speedMultiplier;
 this.y += this.velY * speedMultiplier;
-
+```
 Modified the loop() function to respect the pause state:
-
+```js
 function loop() {
 ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
 ctx.fillRect(0, 0, width, height);
@@ -72,9 +72,9 @@ if (!isPaused) {
 animationId = requestAnimationFrame(loop);
 }
 }
-
+```
 Added a click event listener for pause/resume button:
-
+```js
 document.getElementById('pauseResumeBtn').addEventListener('click', function() {
 isPaused = !isPaused;
 if (isPaused) {
@@ -85,9 +85,9 @@ loop();
 this.textContent = 'Pause';
 }
 });
-
+```
 Added a click event listener for speed control button:
-
+```js
 document.getElementById('speedBtn').addEventListener('click', function() {
 if (speedMultiplier === 1) {
 speedMultiplier = 0.5;
@@ -100,8 +100,8 @@ speedMultiplier = 1;
 this.textContent = 'Speed: 1x';
 }
 });
-
-Additional Improvements:
+```
+#### Additional Improvements:
 
 -   Improved code readability with consistent spacing and indentation
 -   Fixed minor formatting issues for better clarity
