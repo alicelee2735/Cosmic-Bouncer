@@ -81,8 +81,9 @@ Ball.prototype.update = function() {
       let distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < attraction.distance) { //  Attraction range
-        this.velX += dx * attraction.factor;
-        this.velY += dy * attraction.factor;
+        let force = attraction.factor * (1 - distance / attraction.distance);
+        this.velX += dx * force;
+        this.velY += dy * force;
       }
     }
 
