@@ -6,10 +6,14 @@ const height = canvas.height = window.innerHeight;
 let balls = [];
 let animationId;
 let isPaused = false;
-let isAttractionEnabled = false;
-const attractionFactor = 0.01; // Adjusts the speed towards the cursor
 let mouse = { x: width / 2, y: height / 2 };
 let speedMultiplier = 1;
+
+const attraction = {
+    enabled: false,
+    distance: 100,
+    factor: 0.02
+}
 
 // Function to generate random numbers
 function random(min, max) {
@@ -56,14 +60,14 @@ Ball.prototype.update = function() {
     }
 
     
-    if (isAttractionEnabled) {
+    if (attraction.enabled) {
       let dx = mouse.x - this.x;
       let dy = mouse.y - this.y;
       let distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 100) { //  Attraction range
-        this.velX += dx * attractionFactor;
-        this.velY += dy * attractionFactor;
+      if (distance < attraction.distance) { //  Attraction range
+        this.velX += dx * attraction.factor;
+        this.velY += dy * attraction.factor;
       }
     }
 
@@ -150,10 +154,10 @@ document.getElementById('speedBtn').addEventListener('click', function() {
 });
 
 document.getElementById('attractionBtn').addEventListener('click', function() {
-  isAttractionEnabled = !isAttractionEnabled;
+  attraction.enabled = !attraction.enabled;
 
-  this.textContent = isAttractionEnabled ? 'Attraction: ON' : 'Attraction: OFF';
-  this.style.backgroundColor = isAttractionEnabled ? '#555' : '#333';
+  this.textContent = attraction.enabled ? 'Attraction: ON' : 'Attraction: OFF';
+  this.style.backgroundColor = attraction.enabled ? '#555' : '#333';
 });
 
 // Evento para detectar el movimiento del mouse
