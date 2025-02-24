@@ -8,14 +8,13 @@ A cool physics and art simulation I created for fun. Good for learning HTML canv
 
 ![Untitled design (1)](https://github.com/user-attachments/assets/6db7a1b4-dde5-4653-96ba-d0dadb7481b8)
 
-
 ## Highlights
-- **30+ colorful balls** with random sizes and velocities
 - **Realistic wall collisions** with momentum preservation
 - **Dynamic color changes** on collisions
 - **Responsive design** that adapts to the window size of your browser/device
 - **Pause/Resume functionality** with interactive button
 - **Speed control** with variable multipliers (0.5x, 1x, 2x)
+- **Attraction to cursor** when mouse moves around the screen
 
 ## Quick Start
 1. Clone repo:
