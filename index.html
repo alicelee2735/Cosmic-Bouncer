@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>  
-    <style>
-        body {
-            background-color: black;
-        }
-    </style>
-</head>
-<body>
-    <canvas>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cosmic Bouncer</title>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                overflow: hidden;
+            }
+            canvas {
+                border: 1px solid white;
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+            button {
+                position: absolute;
+                bottom: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #333;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                z-index: 1;
+            }
+            #pauseResumeBtn {
+                left: 20px;
+            }
+            #speedBtn {
+                right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas></canvas>
+        <button id="pauseResumeBtn">Pause</button>
+        <button id="speedBtn">Speed: 1x</button>
         <script src="main.js"></script>
-    </canvas>
-</body>
+    </body>
 </html>
