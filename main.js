@@ -41,6 +41,21 @@ Ball.prototype.draw = function() {
     ctx.fillStyle = this.color;
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.fill();
+
+    if (attraction.enabled) {
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, (attraction.distance / 3), 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.01)';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Color de la sombra
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = -5;
+        ctx.shadowOffsetY = -5;
+        ctx.fill();
+        ctx.shadowColor = 'none';
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+    }
 };
 
 // Update method for Ball
@@ -158,6 +173,7 @@ document.getElementById('attractionBtn').addEventListener('click', function() {
 
   this.textContent = attraction.enabled ? 'Attraction: ON' : 'Attraction: OFF';
   this.style.backgroundColor = attraction.enabled ? '#555' : '#333';
+  canvas.style.cursor = attraction.enabled ? 'none' : 'default';
 });
 
 // Evento para detectar el movimiento del mouse
