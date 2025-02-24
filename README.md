@@ -49,7 +49,7 @@ let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
 ## Live Demo
 Hosted on GitHub: [Demo Website](https://alicelee2735.github.io/Cosmic-Bouncer/)
 
-## 🤝 Contributing
+## Contributing
 All contributions are welcome! See [CONTRIBUTING.md](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/CONTRIBUTING.md) for guidelines.
 First-time contributors are encouraged to:
 
@@ -59,7 +59,7 @@ First-time contributors are encouraged to:
 
 - Your Own Cool Ideas!
 
-## 📜 License
+## License
 MIT © Alice Lee - See [LICENSE](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/LICENSE) for details
 
 Leave a Star if you liked it! ⭐
