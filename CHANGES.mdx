@@ -1,4 +1,83 @@
-#### New Changes made by [Lucas](https://github.com/Lucaas-o):
+## New Changes made by [Mauro](https://github.com/mauroviveros)
+- Implemented mouse interaction with bouncing balls.
+- Added a visual attraction indicator.
+
+#### index.html
+
+Added a button element above the speed button.
+```html
+<button id="attractionBtn">Attraction: OFF</button>
+```
+
+#### main.js
+
+Added global variables to manage attraction
+```js
+const attraction = {
+  enabled: false,
+  distance: 100,
+  factor: 0.02
+}
+let mouse = { x: width / 2, y: height / 2 };
+```
+
+Added functionality to make balls react to mouse movement. Now, balls are attracted to the cursor when it is inside the canvas.
+In `Ball.prototype.update`
+```js
+if (attraction.enabled) {
+  let dx = mouse.x - this.x;
+  let dy = mouse.y - this.y;
+  let distance = Math.sqrt(dx * dx + dy * dy);
+
+  if (distance < attraction.distance) { //  Attraction range
+    let force = attraction.factor * (1 - distance / attraction.distance);
+    this.velX += dx * force;
+    this.velY += dy * force;
+  }
+}
+
+document.getElementById('attractionBtn').addEventListener('click', function() {
+  attraction.enabled = !attraction.enabled;
+
+  this.textContent = attraction.enabled ? 'Attraction: ON' : 'Attraction: OFF';
+  this.style.backgroundColor = attraction.enabled ? '#555' : '#333';
+});
+
+// Event to detect mouse movement
+canvas.addEventListener('mousemove', function (event) {
+  mouse.x = event.clientX;
+  mouse.y = event.clientY;
+});
+```
+
+
+Added a Visual Attraction Indicator
+A visual indicator now displays the attraction area around the mouse cursor, improving user experience.
+In `Ball.prototype.draw()`
+```js
+if (attraction.enabled) {
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, (attraction.distance / 3), 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.01)';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = -5;
+    ctx.shadowOffsetY = -5;
+    ctx.fill();
+    ctx.shadowColor = 'none';
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+}
+```
+
+#### Additional Improvements:
+
+- Performance optimization: Adjusted attraction force calculations to improve efficiency.
+- Code cleanup: Removed unnecessary comments and variables to keep the code clean and readable.
+- Fixed speed increase issue caused by attraction force.
+
+## New Changes made by [Lucas](https://github.com/Lucaas-o):
 - Added "Speed control" and "Pause/Resume" to Highlights in README.md
 - Included new controls section for the new buttons
 - Updated Customization section with speed multiplier
