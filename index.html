@@ -5,76 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmic Bouncer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        canvas {
-            border: 1px solid white;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        button {
-            position: absolute;
-            bottom: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            z-index: 1;
-        }
-        #pauseResumeBtn {
-            left: 20px;
-        }
-        #speedBtn {
-            right: 20px;
-        }
-        #attractionBtn {
-            right: 20px;
-            bottom: 70px;
-        }
-        #ballsBtn {
-            left: 20px;
-            bottom: 70px;
-        }
-        #contributeBtn {
-            bottom: 120px;
-            left: 20px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            position: absolute;
-        }
-        #contributeBtn::before {
-            content: '\f4c4';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="index">
     <canvas></canvas>
-    <button id="pauseResumeBtn">Pause</button>
-    <button id="speedBtn">Speed: 1x</button>
-    <button id="attractionBtn">Attraction: OFF</button>
-    <button id="ballsBtn">Amount: 30</button>
-    <button id="gravityBtn">Gravity: OFF</button>
-    <button id="contributeBtn">Contribute</button>
+    <button class="control-btn" id="pauseResumeBtn">Pause</button>
+    <button class="control-btn" id="speedBtn">Speed: 1x</button>
+    <button class="control-btn" id="attractionBtn">Attraction: OFF</button>
+    <button class="control-btn" id="ballsBtn">Amount: 30</button>
+    <button class="control-btn" id="gravityBtn">Gravity: OFF</button>
+    <button class="control-btn" id="contributeBtn">Contribute</button>
     <script src="main.js"></script>
 </body>
 </html>
