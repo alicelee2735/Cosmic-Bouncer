@@ -60,16 +60,16 @@ Edit main.js to tweak the simulation:
 - Contribute Button: Visit contribution guidelines
 
 ## Live Demo
-Hosted on GitHub Pages: [Demo Website](https://alicelee2735.github.io/Cosmic-Bouncer/)
+Hosted on GitHub Pages: [Demo Website](https://lucaas-o.github.io/Cosmic-Bouncer/)
 
 ## 🤝 Contributing
-All contributions are welcome! See [CONTRIBUTING.md](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/CONTRIBUTING.md) for guidelines. First-time contributors can try:
+All contributions are welcome! See [CONTRIBUTING.md](https://github.com/Lucaas-o/Cosmic-Bouncer/blob/updates/CONTRIBUTING.md) for guidelines. First-time contributors can try:
 
 - Adding new collision effects
 - Enhancing user interaction (e.g., sliders, keyboard controls)
 - Implementing your own cool ideas!
 
-Check [TODO.md](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/TODO.md) for more inspiration.
+Check [TODO.md](https://github.com/Lucaas-o/Cosmic-Bouncer/blob/updates/todo.md) for more inspiration.
 
 ## 📜 License
 MIT © Alice Lee - See [LICENSE](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/LICENSE) for details
