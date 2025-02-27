@@ -1,0 +1,202 @@
+## New Changes made by [Mauro](https://github.com/mauroviveros)
+- Implemented mouse interaction with bouncing balls.
+- Added a visual attraction indicator.
+
+#### index.html
+
+Added a button element above the speed button.
+```html
+<button id="attractionBtn">Attraction: OFF</button>
+```
+
+#### main.js
+
+Added global variables to manage attraction
+```js
+const attraction = {
+  enabled: false,
+  distance: 100,
+  factor: 0.02
+}
+let mouse = { x: width / 2, y: height / 2 };
+```
+
+Added functionality to make balls react to mouse movement. Now, balls are attracted to the cursor when it is inside the canvas.
+In `Ball.prototype.update`
+```js
+if (attraction.enabled) {
+  let dx = mouse.x - this.x;
+  let dy = mouse.y - this.y;
+  let distance = Math.sqrt(dx * dx + dy * dy);
+
+  if (distance < attraction.distance) { //  Attraction range
+    let force = attraction.factor * (1 - distance / attraction.distance);
+    this.velX += dx * force;
+    this.velY += dy * force;
+  }
+}
+
+document.getElementById('attractionBtn').addEventListener('click', function() {
+  attraction.enabled = !attraction.enabled;
+
+  this.textContent = attraction.enabled ? 'Attraction: ON' : 'Attraction: OFF';
+  this.style.backgroundColor = attraction.enabled ? '#555' : '#333';
+});
+
+// Event to detect mouse movement
+canvas.addEventListener('mousemove', function (event) {
+  mouse.x = event.clientX;
+  mouse.y = event.clientY;
+});
+```
+
+
+Added a Visual Attraction Indicator
+A visual indicator now displays the attraction area around the mouse cursor, improving user experience.
+In `Ball.prototype.draw()`
+```js
+if (attraction.enabled) {
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, (attraction.distance / 3), 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.01)';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = -5;
+    ctx.shadowOffsetY = -5;
+    ctx.fill();
+    ctx.shadowColor = 'none';
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+}
+```
+
+#### Additional Improvements:
+
+- Performance optimization: Adjusted attraction force calculations to improve efficiency.
+- Code cleanup: Removed unnecessary comments and variables to keep the code clean and readable.
+- Fixed speed increase issue caused by attraction force.
+
+## New Changes made by [Lucas](https://github.com/Lucaas-o):
+- Added "Speed control" and "Pause/Resume" to Highlights in README.md
+- Included new controls section for the new buttons
+- Updated Customization section with speed multiplier
+- Suggested additional contribution ideas
+
+
+
+#### index.html
+
+Added two button elements below the canvas:
+```html
+<button id="pauseResumeBtn">Pause</button>
+<button id="speedBtn">Speed: 1x</button>
+```
+Added CSS styling for buttons:
+```css
+button {
+position: absolute;
+bottom: 20px;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+background-color: #333;
+color: white;
+border: none;
+border-radius: 5px;
+z-index: 1;
+}
+#pauseResumeBtn {
+left: 20px;
+}
+#speedBtn {
+right: 20px;
+}
+```
+#### main.js
+Added global variables to manage animation state and speed:
+```js
+let animationId;
+let isPaused = false;
+let speedMultiplier = 1; // Default speed multiplier
+```
+Modified Ball.prototype.update to use speed multiplier:
+```js
+this.x += this.velX * speedMultiplier;
+this.y += this.velY * speedMultiplier;
+```
+Modified the loop() function to respect the pause state:
+```js
+function loop() {
+ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+ctx.fillRect(0, 0, width, height);
+while (balls.length < 30) {
+let ball = new Ball(
+random(0, width),
+random(0, height),
+random(-7, 7),
+random(-7, 7),
+randomColor(),
+random(10, 20)
+);
+balls.push(ball);
+}
+for (let i = 0; i < balls.length; i++) {
+let ball = balls[i];
+ball.draw();
+ball.update();
+ball.collisionDetect();
+}
+if (!isPaused) {
+animationId = requestAnimationFrame(loop);
+}
+}
+```
+Added a click event listener for pause/resume button:
+```js
+document.getElementById('pauseResumeBtn').addEventListener('click', function() {
+isPaused = !isPaused;
+if (isPaused) {
+cancelAnimationFrame(animationId);
+this.textContent = 'Resume';
+} else {
+loop();
+this.textContent = 'Pause';
+}
+});
+```
+Added a click event listener for speed control button:
+```js
+document.getElementById('speedBtn').addEventListener('click', function() {
+if (speedMultiplier === 1) {
+speedMultiplier = 0.5;
+this.textContent = 'Speed: 0.5x';
+} else if (speedMultiplier === 0.5) {
+speedMultiplier = 2;
+this.textContent = 'Speed: 2x';
+} else {
+speedMultiplier = 1;
+this.textContent = 'Speed: 1x';
+}
+});
+```
+#### Additional Improvements:
+
+-   Improved code readability with consistent spacing and indentation
+-   Fixed minor formatting issues for better clarity
+-   Added proper positioning for buttons to prevent overlap with canvas
+
+## Recent Changes (February 2025)
+
+### Contributions by [Lucaas-o](https://github.com/Lucaas-o)
+- Added a Contribute button linking to a new `contribute.html` page for community engagement.
+- Integrated Font Awesome for a "hands-helping" icon on the Contribute button.
+- Cleaned up `index.html` and `contribute.html` for consistent structure and indentation.
+- Added a Gravity toggle button to enable/disable gravity effects.
+- Enhanced the attraction indicator with a clearer cursor circle and range outline.
+- Updated `CONTRIBUTING.md` and `TODO.md` to reflect new features and tasks.
+- Ensured button positioning avoids overlap and improves usability.
+
+---
+
+Let's keep improving this project and develop the full potential of it! :D
