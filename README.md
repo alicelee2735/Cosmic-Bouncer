@@ -69,7 +69,7 @@ All contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guid
 - Enhancing user interaction (e.g., sliders, keyboard controls)
 - Implementing your own cool ideas!
 
-Check [TODO.md](./TODO.md) for more inspiration.
+Check [TODO.md](./todo.md) for more inspiration.
 
 ## 📜 License
 MIT © Alice Lee - See [LICENSE](./LICENSE) for details
