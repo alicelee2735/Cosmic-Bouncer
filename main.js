@@ -180,5 +180,10 @@ window.addEventListener('resize', () => {
     });
 });
 
+// Simple redirect for the contribute button
+document.getElementById('contributeBtn').addEventListener('click', () => {
+    window.location.href = 'contribute.html';
+});
+
 // Start animation
 loop();
