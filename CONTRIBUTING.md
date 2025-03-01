@@ -11,7 +11,7 @@ All contributions are welcome! Here’s how to get started:
 2. **Clone** your fork locally:
 
    ```bash 
-   git clone https://github.com/Lucaas-o/cosmic-bouncer.git
+   https://github.com/alicelee2735/Cosmic-Bouncer.git
 
 3. Create a **feature branch**:
    
@@ -70,7 +70,7 @@ Check [TODO.md](./TODO.md) for the full list, effort estimates, and priorities!
 
 ## ❓ Need Help?
 
-- Open an [issue](https://github.com/Lucaas-o/cosmic-bouncer/issues) for questions, bugs, or feature discussions.
+- Open an [issue](https://github.com/alicelee2735/Cosmic-Bouncer/issues) for questions, bugs, or feature discussions.
 
 - Join the conversation—your input shapes this project!
 
