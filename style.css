@@ -1,0 +1,129 @@
+/* Global Styles */
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Index Page Layout */
+body.index {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+
+canvas {
+  border: 1px solid white;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Global Button Styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgba(51, 51, 51, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: rgba(68, 68, 68, 0.7);
+}
+
+/* Index Page Buttons */
+.control-btn {
+  position: absolute;
+}
+
+#pauseResumeBtn {
+  left: 20px;
+  bottom: 20px;
+}
+
+#speedBtn {
+  right: 20px;
+  bottom: 20px;
+}
+
+#attractionBtn {
+  right: 20px;
+  bottom: 70px;
+}
+
+#ballsBtn {
+  left: 20px;
+  bottom: 70px;
+}
+
+#gravityBtn {
+  left: 20px;
+  bottom: 120px;
+}
+
+#contributeBtn {
+  left: 20px;
+  bottom: 170px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#contributeBtn::before {
+  content: '\f4c4';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* Contribute Page Buttons */
+.contribute-btn {
+  margin: 10px;
+  display: inline-block;
+  background-color: rgba(51, 51, 51, 0.7);
+}
+
+.contribute-btn:hover {
+  background-color: rgba(68, 68, 68, 0.7);
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: #fff;
+  margin-top: 0;
+}
+
+a {
+  color: #4da8da;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+/* Section Styles */
+.section {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
