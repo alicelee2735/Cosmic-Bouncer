@@ -110,7 +110,7 @@ First-time contributors are encouraged to:
 - Enhancing user interaction (e.g., sliders, keyboard controls)
 - Implementing your own cool ideas!
 
-Check [TODO.md](./todo.md) for more inspiration.
+Check [TODO.md](./TODO.md) for more inspiration.
 
 ## License
 MIT © Alice Lee - See [LICENSE](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/LICENSE) for details
