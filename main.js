@@ -104,7 +104,6 @@ const loop = () => {
 
     while (balls.length < ballCount) {
         balls.push(new Ball(
-=======
 // Initialize canvas
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
@@ -305,7 +304,6 @@ window.location.href = 'contribute.html';
 
 // Start animation
 loop();
-=======
         );
         balls.push(ball);
     }
