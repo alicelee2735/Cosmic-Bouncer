@@ -1,10 +1,10 @@
 # 🌌 Cosmic Bouncer
 🟠 Open Source Visual Art Project
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/alicelee2735/cosmic-bouncer/)
 
-A cool physics and art simulation created for fun. Perfect for learning HTML canvas animations and basic game physics :)
+A cool physics and art simulation I created for fun. Perfect for learning HTML canvas animations and basic game physics :)
 
 ![Untitled design (1)](https://github.com/user-attachments/assets/6db7a1b4-dde5-4653-96ba-d0dadb7481b8)
 
@@ -60,10 +60,10 @@ Edit main.js to tweak the simulation:
 - Contribute Button: Visit contribution guidelines
 
 ## Live Demo
-Hosted on GitHub Pages: [Demo Website](https://lucaas-o.github.io/Cosmic-Bouncer/)
+Hosted on GitHub Pages: [Demo Website](https://alicelee2735.github.io/Cosmic-Bouncer/)
 
 ## 🤝 Contributing
-All contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines. First-time contributors can try:
+All contributions are welcome! See [CONTRIBUTING.md](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/CONTRIBUTING.md) for guidelines. First-time contributors can try:
 
 - Adding new collision effects
 - Enhancing user interaction (e.g., sliders, keyboard controls)
@@ -72,6 +72,6 @@ All contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guid
 Check [TODO.md](./todo.md) for more inspiration.
 
 ## 📜 License
-MIT © Alice Lee - See [LICENSE](./LICENSE) for details
+MIT © Alice Lee - See [LICENSE](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/LICENSE) for details
 
 Leave a Star if you liked it! ⭐
