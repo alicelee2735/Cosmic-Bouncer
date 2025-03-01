@@ -86,7 +86,7 @@ const drawAttraction = () => {
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 1;
     ctx.stroke();
-
+    ctx.closePath();
     // Draw cursor circle
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, 10, 0, 2 * Math.PI);
@@ -95,13 +95,14 @@ const drawAttraction = () => {
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
     ctx.stroke();
+    ctx.closePath();
 };
 
 // Animation loop
 const loop = () => {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+    ctx.clearRect(0, 0, width, height);
     ctx.fillRect(0, 0, width, height);
-
+    ctx.beginPath();
     while (balls.length < ballCount) {
         balls.push(new Ball(
             random(0, width),
