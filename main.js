@@ -13,6 +13,12 @@ let isPaused = false;
 let mouse = { x: width / 2, y: height / 2 };
 let speedMultiplier = 1;
 let ballCount = 30;
+let fps = 0;
+let lastFrameTime = performance.now();
+let frameTimes = [];
+const FRAME_SAMPLES = 10;
+let lastFPSUpdate = performance.now();
+const FPS_UPDATE_INTERVAL = 100;
 const GRAVITY = { enabled: false, amount: 0.1 };
 const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
 
@@ -20,6 +26,33 @@ const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
 const random = (min, max) => Math.random() * (max - min) + min;
 const randomInt = (min, max) => Math.floor(random(min, max));
 const randomColor = () => `rgb(${randomInt(0, 256)}, ${randomInt(0, 256)}, ${randomInt(0, 256)})`;
+
+// Display FPS with rolling average
+const drawFPS = () => {
+    const now = performance.now();
+    const frameTime = now - lastFrameTime;
+    lastFrameTime = now;
+
+    frameTimes.push(frameTime);
+    if (frameTimes.length > FRAME_SAMPLES) {
+        frameTimes.shift();
+    }
+
+    // Calculate average FPS
+    const averageFrameTime = frameTimes.reduce((sum, time) => sum + time, 0) / frameTimes.length;
+    const calculatedFPS = Math.round(1000 / averageFrameTime);
+
+    // Update displayed FPS only at the specified interval
+    if (now - lastFPSUpdate >= FPS_UPDATE_INTERVAL) {
+        fps = calculatedFPS;
+        lastFPSUpdate = now;
+    }
+
+    // Set FPS color: green > 40 FPS, yellow 20-39 FPS, red < 20 FPS
+    ctx.fillStyle = fps >= 40 ? "green" : fps >= 20 ? "yellow" : "red";
+    ctx.font = "20px Arial";
+    ctx.fillText(`FPS: ${fps}`, 15, 30);
+};
 
 // Ball class
 class Ball {
@@ -119,6 +152,7 @@ const loop = () => {
     });
 
     drawAttraction();
+    drawFPS(); // Updated FPS display
 
     if (!isPaused) animationId = requestAnimationFrame(loop);
 };
