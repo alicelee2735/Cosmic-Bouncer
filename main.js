@@ -3,8 +3,8 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-let width = canvas.width;
-let height = canvas.height;
+const width = canvas.width;
+const height = canvas.height;
 
 // State variables
 let balls = [];
@@ -86,7 +86,7 @@ const drawAttraction = () => {
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 1;
     ctx.stroke();
-    ctx.closePath();
+
     // Draw cursor circle
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, 10, 0, 2 * Math.PI);
@@ -95,14 +95,13 @@ const drawAttraction = () => {
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
     ctx.stroke();
-    ctx.closePath();
 };
 
 // Animation loop
 const loop = () => {
-    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
     ctx.fillRect(0, 0, width, height);
-    ctx.beginPath();
+
     while (balls.length < ballCount) {
         balls.push(new Ball(
             random(0, width),
@@ -148,14 +147,14 @@ document.getElementById('speedBtn').addEventListener('click', (e) => {
 });
 
 document.getElementById('attractionBtn').addEventListener('click', (e) => {
-    buttonClickEffect(e.target);
+    buttonClickEffect(e.target); // Added click effect here
     ATTRACTION.enabled = !ATTRACTION.enabled;
     e.target.textContent = `Attraction: ${ATTRACTION.enabled ? 'ON' : 'OFF'}`;
     e.target.style.backgroundColor = ATTRACTION.enabled ? '#555' : '#333';
 });
 
 document.getElementById('gravityBtn').addEventListener('click', (e) => {
-    buttonClickEffect(e.target);
+    buttonClickEffect(e.target); // Added click effect here
     GRAVITY.enabled = !GRAVITY.enabled;
     e.target.textContent = `Gravity: ${GRAVITY.enabled ? 'ON' : 'OFF'}`;
     e.target.style.backgroundColor = GRAVITY.enabled ? '#555' : '#333';
@@ -175,11 +174,9 @@ canvas.addEventListener('mousemove', (e) => {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    width = canvas.width;
-    height = canvas.height;
     balls.forEach(ball => {
-        ball.x = Math.min(ball.x, width);
-        ball.y = Math.min(ball.y, height);
+        ball.x = Math.min(ball.x, canvas.width);
+        ball.y = Math.min(ball.y, canvas.height);
     });
 });
 
