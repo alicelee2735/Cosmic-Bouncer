@@ -13,6 +13,8 @@ let isPaused = false;
 let mouse = { x: width / 2, y: height / 2 };
 let speedMultiplier = 1;
 let ballCount = 30;
+let fps = 0;
+let lastFrameTime = performance.now();
 const GRAVITY = { enabled: false, amount: 0.1 };
 const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
 
@@ -20,6 +22,26 @@ const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
 const random = (min, max) => Math.random() * (max - min) + min;
 const randomInt = (min, max) => Math.floor(random(min, max));
 const randomColor = () => `rgb(${randomInt(0, 256)}, ${randomInt(0, 256)}, ${randomInt(0, 256)})`;
+
+// Display FPS
+const drawFPS = () => {
+    const now = performance.now();
+    const frameTime = now - lastFrameTime;
+    lastFrameTime = now;
+
+    fps = Math.round(1000 / frameTime); // FPS calculation
+
+    // Set FPS color: green —— > 40 FPS, yellow —— 20-39 FPS, red —— < 20 FPS
+    if (fps >= 40) {
+        ctx.fillStyle = "green";
+    } else if (fps >= 20) {
+        ctx.fillStyle = "yellow";
+    } else {
+        ctx.fillStyle = "red";
+    }
+    ctx.font = "20px Arial";
+    ctx.fillText(`FPS: ${fps}`, 15, 30);
+};
 
 // Ball class
 class Ball {
@@ -121,6 +143,7 @@ const loop = () => {
     });
 
     drawAttraction();
+    drawFPS();
 
     if (!isPaused) animationId = requestAnimationFrame(loop);
 };
