@@ -1,10 +1,10 @@
 // Canvas setup
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-const width = canvas.width;
-const height = canvas.height;
+let width = canvas.width;
+let height = canvas.height;
 
 // State variables
 let balls = [];
@@ -17,9 +17,9 @@ const GRAVITY = { enabled: false, amount: 0.1 };
 const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
 
 // Utility functions
-const random = (min, max) => Math.random() * (max - min) + min;
-const randomInt = (min, max) => Math.floor(random(min, max));
-const randomColor = () => `rgb(${randomInt(0, 256)}, ${randomInt(0, 256)}, ${randomInt(0, 256)})`;
+let random = (min, max) => Math.random() * (max - min) + min;
+let randomInt = (min, max) => Math.floor(random(min, max));
+let randomColor = () => `rgb(${randomInt(0, 256)}, ${randomInt(0, 256)}, ${randomInt(0, 256)})`;
 
 // Ball class
 class Ball {
@@ -361,7 +361,7 @@ document.getElementById('attractionBtn').addEventListener('click', function() {
   canvas.style.cursor = attraction.enabled ? 'none' : 'default';
 });
 
-// Evento para detectar el movimiento del mouse
+//Mouse movement detector
 canvas.addEventListener('mousemove', function (event) {
   mouse.x = event.clientX;
   mouse.y = event.clientY;
