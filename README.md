@@ -10,22 +10,14 @@ A cool physics and art simulation I created for fun. Perfect for learning HTML c
 
 ## Highlights
 
-- 30+ colorful balls with random sizes and velocities
-- Realistic wall collisions with momentum preservation
-- Dynamic color changes on collisions
-- Responsive design that adapts to your browser/device window size
-- Pause/Resume functionality with interactive button
-- Speed control with variable multipliers (0.5x, 1x, 2x)
-- Gravity toggle to apply downward force
-- Mouse attraction to pull balls toward the cursor
-- Contribute button linking to community guidelines
-=======
 - **Realistic wall collisions** with momentum preservation
 - **Dynamic color changes** on collisions
 - **Responsive design** that adapts to the window size of your browser/device
 - **Pause/Resume functionality** with interactive button
 - **Speed control** with variable multipliers (0.5x, 1x, 2x)
 - **Attraction to cursor** when mouse moves around the screen
+- **Gravity toggle** to apply downward force
+- **Contribute button** linking to community guidelines
 
 
 ## Quick Start
@@ -39,28 +31,28 @@ A cool physics and art simulation I created for fun. Perfect for learning HTML c
 
 Edit main.js to tweak the simulation:
 
-    ```js
-    // Change number of balls
-    while (balls.length < 30) { // ← Modify this number
+```js
+// Change number of balls
+while (balls.length < 30) { // ← Modify this number
 
-    // Adjust speed ranges
-    random(-7, 7) // ← Modify velocity values
+// Adjust speed ranges
+random(-7, 7) // ← Modify velocity values
 
-    // Modify size range
-    random(10, 20) // ← Modify ball sizes
+// Modify size range
+random(10, 20) // ← Modify ball sizes
 
-    // Change background fade effect
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
+// Change background fade effect
+ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
 
-    // Adjust speed multiplier
-    let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
+// Adjust speed multiplier
+let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
 
-    // Toggle gravity
-    const GRAVITY = { enabled: false, amount: 0.1 }; // ← Adjust gravity strength
+// Toggle gravity
+const GRAVITY = { enabled: false, amount: 0.1 }; // ← Adjust gravity strength
 
-    // Configure attraction
-    const attraction = { enabled: false, distance: 100, factor: 0.02 }; // ← Tweak range and force
-    ```
+// Configure attraction
+const attraction = { enabled: false, distance: 100, factor: 0.02 }; // ← Tweak range and force
+```
 
 ## Controls
 - Pause/Resume Button: Toggle animation state
