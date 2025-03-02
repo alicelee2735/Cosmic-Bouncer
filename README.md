@@ -68,8 +68,9 @@ Edit main.js to tweak the simulation:
 - Gravity Button: Enable/disable downward gravity
 - Attraction Button: Toggle mouse attraction with visual indicator
 - Contribute Button: Visit contribution guidelines
-=======
+
 Edit main.js to modify in main.js:
+
 ```js
 // Change number of balls
 while (balls.length < 30) { // ← Modify this number
@@ -98,10 +99,7 @@ Hosted on GitHub Pages: [Demo Website](https://alicelee2735.github.io/Cosmic-Bou
 
 ## 🤝 Contributing
 All contributions are welcome! See [CONTRIBUTING.md](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/CONTRIBUTING.md) for guidelines. First-time contributors can try:
-=======
-## Contributing
-All contributions are welcome! See [CONTRIBUTING.md](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/CONTRIBUTING.md) for guidelines.
-First-time contributors are encouraged to:
+
 
 - Add new collision effects
 
@@ -110,7 +108,9 @@ First-time contributors are encouraged to:
 - Enhancing user interaction (e.g., sliders, keyboard controls)
 - Implementing your own cool ideas!
 
+
 Check [TODO.md](./todo.md) for more inspiration.
+
 
 ## License
 MIT © Alice Lee - See [LICENSE](https://github.com/alicelee2735/Cosmic-Bouncer/blob/main/LICENSE) for details
