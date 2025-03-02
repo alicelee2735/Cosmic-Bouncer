@@ -15,6 +15,10 @@ let speedMultiplier = 1;
 let ballCount = 30;
 let fps = 0;
 let lastFrameTime = performance.now();
+let frameTimes = [];
+const FRAME_SAMPLES = 10;
+let lastFPSUpdate = performance.now();
+const FPS_UPDATE_INTERVAL = 100;
 const GRAVITY = { enabled: false, amount: 0.1 };
 const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
 
@@ -23,22 +27,29 @@ const random = (min, max) => Math.random() * (max - min) + min;
 const randomInt = (min, max) => Math.floor(random(min, max));
 const randomColor = () => `rgb(${randomInt(0, 256)}, ${randomInt(0, 256)}, ${randomInt(0, 256)})`;
 
-// Display FPS
+// Display FPS with rolling average
 const drawFPS = () => {
     const now = performance.now();
     const frameTime = now - lastFrameTime;
     lastFrameTime = now;
 
-    fps = Math.round(1000 / frameTime); // FPS calculation
-
-    // Set FPS color: green —— > 40 FPS, yellow —— 20-39 FPS, red —— < 20 FPS
-    if (fps >= 40) {
-        ctx.fillStyle = "green";
-    } else if (fps >= 20) {
-        ctx.fillStyle = "yellow";
-    } else {
-        ctx.fillStyle = "red";
+    frameTimes.push(frameTime);
+    if (frameTimes.length > FRAME_SAMPLES) {
+        frameTimes.shift();
     }
+
+    // Calculate average FPS
+    const averageFrameTime = frameTimes.reduce((sum, time) => sum + time, 0) / frameTimes.length;
+    const calculatedFPS = Math.round(1000 / averageFrameTime);
+
+    // Update displayed FPS only at the specified interval
+    if (now - lastFPSUpdate >= FPS_UPDATE_INTERVAL) {
+        fps = calculatedFPS;
+        lastFPSUpdate = now;
+    }
+
+    // Set FPS color: green > 40 FPS, yellow 20-39 FPS, red < 20 FPS
+    ctx.fillStyle = fps >= 40 ? "green" : fps >= 20 ? "yellow" : "red";
     ctx.font = "20px Arial";
     ctx.fillText(`FPS: ${fps}`, 15, 30);
 };
@@ -98,18 +109,16 @@ class Ball {
     }
 }
 
-// Attraction visualization with cursor
+// Attraction visualization
 const drawAttraction = () => {
     if (!ATTRACTION.enabled) return;
 
-    // Draw attraction range (faint circle)
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, ATTRACTION.distance, 0, 2 * Math.PI);
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 1;
     ctx.stroke();
 
-    // Draw cursor circle
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, 10, 0, 2 * Math.PI);
     ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
@@ -143,7 +152,7 @@ const loop = () => {
     });
 
     drawAttraction();
-    drawFPS();
+    drawFPS(); // Updated FPS display
 
     if (!isPaused) animationId = requestAnimationFrame(loop);
 };
@@ -170,17 +179,16 @@ document.getElementById('speedBtn').addEventListener('click', (e) => {
 });
 
 document.getElementById('attractionBtn').addEventListener('click', (e) => {
-    buttonClickEffect(e.target); // Added click effect here
+    buttonClickEffect(e.target);
     ATTRACTION.enabled = !ATTRACTION.enabled;
     e.target.textContent = `Attraction: ${ATTRACTION.enabled ? 'ON' : 'OFF'}`;
-    e.target.style.backgroundColor = ATTRACTION.enabled ? '#555' : '#333';
+    canvas.style.cursor = ATTRACTION.enabled ? 'none' : 'default';
 });
 
 document.getElementById('gravityBtn').addEventListener('click', (e) => {
-    buttonClickEffect(e.target); // Added click effect here
+    buttonClickEffect(e.target);
     GRAVITY.enabled = !GRAVITY.enabled;
     e.target.textContent = `Gravity: ${GRAVITY.enabled ? 'ON' : 'OFF'}`;
-    e.target.style.backgroundColor = GRAVITY.enabled ? '#555' : '#333';
 });
 
 document.getElementById('ballsBtn').addEventListener('click', (e) => {
@@ -201,6 +209,10 @@ window.addEventListener('resize', () => {
         ball.x = Math.min(ball.x, canvas.width);
         ball.y = Math.min(ball.y, canvas.height);
     });
+});
+
+document.getElementById('contributeBtn')?.addEventListener('click', () => {
+    window.location.href = 'contribute.html';
 });
 
 // Start animation
