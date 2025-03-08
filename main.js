@@ -215,7 +215,6 @@ document.getElementById('contributeBtn')?.addEventListener('click', () => {
     window.location.href = 'contribute.html';
 });
 
-<<<<<<< HEAD
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
     const pauseBtn = document.getElementById('pauseResumeBtn');
@@ -259,7 +258,5 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-=======
->>>>>>> 3d3562397e3210b5755f02c6b0d2f0bf83dc5591
 // Start animation
 loop();
