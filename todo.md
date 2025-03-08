@@ -58,4 +58,4 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 - Test performance-heavy features (e.g., Explosive Balls) with high ball counts.
 - Keep pull requests small and focused for easier review.
 
-Happy coding! 🚀
+Happy coding! 🚀  
