@@ -13,6 +13,13 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 - [ ] **Visual Feedback (Pause Overlay)**
   - Display "Paused" text on canvas when paused.
   - Effort: ~30 min | Impact: Medium
+- [ ] **FPS Counter**
+  - Add a corner-displayed FPS counter with color-coded feedback (e.g., red < 30 FPS).
+  - Effort: ~1 hr | Impact: Medium
+- [ ] **Open-Source Features**
+  - Add GitHub link in footer.
+  - Implement debug mode toggle showing FPS and ball count.
+  - Effort: ~1 hr | Impact: High
 
 ## Priority 2: Mid-Term Enhancements
 - [ ] **Ball Size Control**
@@ -48,14 +55,10 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 ## Completed
 - [x] **Gravity Toggle**
   - Implemented as a button toggling `GRAVITY.enabled`.
-- [x] **FPS Counter**
-  - FPS Counter on the top left corner with color feedback.
-- [x] **Github Link**
-  - Added a button to the repository in the info page. 
 
 ## Notes
 - Focus on quick wins first to boost usability and community interest.
 - Test performance-heavy features (e.g., Explosive Balls) with high ball counts.
 - Keep pull requests small and focused for easier review.
 
-Happy coding! 🚀  
+Happy coding! 🚀
