@@ -46,21 +46,21 @@ Edit main.js to tweak the simulation:
     // Change number of balls
     let ballCount = 30; // ← Modify this number
 
-// Modify size range
-random(10, 20) // ← Modify ball sizes
+    // Modify size range
+    random(10, 20) // ← Modify ball sizes
 
-// Change background fade effect
-ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
+    // Change background fade effect
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
 
-// Adjust speed multiplier
-let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
+    // Adjust speed multiplier
+    let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
 
-// Toggle gravity
-const GRAVITY = { enabled: false, amount: 0.1 }; // ← Adjust gravity strength
+    // Toggle gravity
+    const GRAVITY = { enabled: false, amount: 0.1 }; // ← Adjust gravity strength
 
-// Configure attraction
-const attraction = { enabled: false, distance: 100, factor: 0.02 }; // ← Tweak range and force
-```
+    // Configure attraction
+    const attraction = { enabled: false, distance: 100, factor: 0.02 }; // ← Tweak range and force
+    ```
 
 ## Controls
 - Pause/Resume Button: Toggle animation state
