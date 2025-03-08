@@ -258,5 +258,5 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Start animation
+// Start animation 
 loop();

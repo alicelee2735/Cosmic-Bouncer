@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/alicelee2735/cosmic-bouncer/)
 
-A cool physics and art simulation I created for fun. Perfect for learning HTML canvas animations and basic game physics :)
+A cool physics and art simulation I created for fun. Perfect for learning HTML canvas animations and basic game physics :) 
 
 ![gif-demo](https://github.com/user-attachments/assets/986e1f4d-76bc-4760-bc78-c5cd12456786)
 
