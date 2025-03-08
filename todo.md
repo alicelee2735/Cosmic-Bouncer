@@ -4,7 +4,7 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 
 ## Priority 1: Quick Wins
 - [ ] **Enhance Ball Count Control**
-  - Replace button cycling (10, 30, 50, 100) with a slider or input field (1-100 balls).
+  - Replace button cycling with a slider or input field (1-100 balls).
   - Example: `<input type="range" id="ballCountSlider" min="1" max="100" value="30">`.
   - Effort: ~1 hr | Impact: High
 - [ ] **Responsive Design**
@@ -13,9 +13,12 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 - [ ] **Visual Feedback (Pause Overlay)**
   - Display "Paused" text on canvas when paused.
   - Effort: ~30 min | Impact: Medium
+- [ ] **FPS Counter**
+  - Add a corner-displayed FPS counter with color-coded feedback (e.g., red < 30 FPS).
+  - Effort: ~1 hr | Impact: Medium
 - [ ] **Open-Source Features**
-  - Add GitHub link in footer (currently in `contribute.html`).
-  - Implement debug mode toggle to show/hide FPS and ball count (FPS is always visible now).
+  - Add GitHub link in footer.
+  - Implement debug mode toggle showing FPS and ball count.
   - Effort: ~1 hr | Impact: High
 
 ## Priority 2: Mid-Term Enhancements
@@ -28,6 +31,9 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 - [ ] **Color Themes**
   - Implement togglable themes (dark, neon, pastel) for background and balls.
   - Effort: ~2 hrs | Impact: Medium
+- [ ] **Keyboard Controls**
+  - Add shortcuts (e.g., `P` for pause, `G` for gravity).
+  - Effort: ~1 hr | Impact: Medium
 - [ ] **Customizable Settings**
   - Add sliders for `speedMultiplier`, `gravity.amount`, and `attraction.distance`.
   - Effort: ~3 hrs | Impact: Medium
@@ -48,11 +54,7 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 
 ## Completed
 - [x] **Gravity Toggle**
-  - Implemented as a button toggling `GRAVITY.enabled` with 'G' shortcut.
-- [x] **FPS Counter**
-  - Added in the top-left corner with color-coded feedback (green > 40, yellow 20-39, red < 20).
-- [x] **Keyboard Controls**
-  - Implemented shortcuts for pause ('P'), speed ('S'), attraction ('A'), gravity ('G'), ball count ('B'), and info page ('C').
+  - Implemented as a button toggling `GRAVITY.enabled`.
 
 ## Notes
 - Focus on quick wins first to boost usability and community interest.

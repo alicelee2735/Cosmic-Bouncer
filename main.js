@@ -153,7 +153,7 @@ const loop = () => {
     });
 
     drawAttraction();
-    drawFPS(); // Updated FPS display
+    drawFPS();
 
     if (!isPaused) animationId = requestAnimationFrame(loop);
 };
@@ -218,8 +218,10 @@ document.getElementById('contributeBtn')?.addEventListener('click', () => {
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-    if (KeyPressed[e.toLowerCase()]) return;
-    KeyPressed[e.toLowerCase()] = true;
+    const key = e.key.toLowerCase();
+    if (KeyPressed[key]) return; // Prevent repeat actions while key is held
+    KeyPressed[key] = true;
+
     const pauseBtn = document.getElementById('pauseResumeBtn');
     const speedBtn = document.getElementById('speedBtn');
     const attractionBtn = document.getElementById('attractionBtn');
@@ -245,25 +247,25 @@ document.addEventListener('keydown', (e) => {
             attractionBtn.textContent = `Attraction: ${ATTRACTION.enabled ? 'ON' : 'OFF'}`;
             canvas.style.cursor = ATTRACTION.enabled ? 'none' : 'default';
             break;
-        case 'g': // Toggle Gravity
+        case 'g':
             buttonClickEffect(gravityBtn);
             GRAVITY.enabled = !GRAVITY.enabled;
             gravityBtn.textContent = `Gravity: ${GRAVITY.enabled ? 'ON' : 'OFF'}`;
             break;
-        case 'b': // Toggle ball count
+        case 'b':
             buttonClickEffect(ballsBtn);
             ballCount = ballCount === 30 ? 50 : ballCount === 50 ? 100 : ballCount === 100 ? 10 : 30;
             ballsBtn.textContent = `Amount: ${ballCount}`;
             break;
-        case 'c': // Goto Contribute.html
+        case 'c':
             window.location.href = 'contribute.html';
             break;
-    };
+    }
 });
 
-// Reset KeyPressed status to false once the key is not being pressed
+// Reset KeyPressed status on key release
 document.addEventListener('keyup', (e) => {
-    keysPressed[e.key.toLowerCase()] = false;
+    KeyPressed[e.key.toLowerCase()] = false;
 });
 
 // Start animation 
