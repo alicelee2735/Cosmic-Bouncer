@@ -21,6 +21,7 @@ let lastFPSUpdate = performance.now();
 const FPS_UPDATE_INTERVAL = 100;
 const GRAVITY = { enabled: false, amount: 0.1 };
 const ATTRACTION = { enabled: false, distance: 110, factor: 0.02 };
+const KeyPressed = {};
 
 // Utility functions
 const random = (min, max) => Math.random() * (max - min) + min;
@@ -217,6 +218,8 @@ document.getElementById('contributeBtn')?.addEventListener('click', () => {
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
+    if (KeyPressed[e.toLowerCase()]) return;
+    KeyPressed[e.toLowerCase()] = true;
     const pauseBtn = document.getElementById('pauseResumeBtn');
     const speedBtn = document.getElementById('speedBtn');
     const attractionBtn = document.getElementById('attractionBtn');
@@ -255,7 +258,12 @@ document.addEventListener('keydown', (e) => {
         case 'c': // Goto Contribute.html
             window.location.href = 'contribute.html';
             break;
-    }
+    };
+});
+
+// Reset KeyPressed status to false once the key is not being pressed
+document.addEventListener('keyup', (e) => {
+    keysPressed[e.key.toLowerCase()] = false;
 });
 
 // Start animation 

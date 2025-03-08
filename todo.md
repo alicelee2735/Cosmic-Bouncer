@@ -1,4 +1,4 @@
-# Cosmic Bouncer - TODO List 
+# Cosmic Bouncer - TODO List
 
 This file tracks planned features and improvements for the Cosmic Bouncer project. Priorities are based on impact, ease of implementation, and value to users and contributors. Contributions welcome!
 
