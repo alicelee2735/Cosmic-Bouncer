@@ -20,7 +20,7 @@ const FRAME_SAMPLES = 10;
 let lastFPSUpdate = performance.now();
 const FPS_UPDATE_INTERVAL = 100;
 const GRAVITY = { enabled: false, amount: 0.1 };
-const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
+const ATTRACTION = { enabled: false, distance: 110, factor: 0.02 };
 
 // Utility functions
 const random = (min, max) => Math.random() * (max - min) + min;
@@ -213,6 +213,49 @@ window.addEventListener('resize', () => {
 
 document.getElementById('contributeBtn')?.addEventListener('click', () => {
     window.location.href = 'contribute.html';
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    const pauseBtn = document.getElementById('pauseResumeBtn');
+    const speedBtn = document.getElementById('speedBtn');
+    const attractionBtn = document.getElementById('attractionBtn');
+    const gravityBtn = document.getElementById('gravityBtn');
+    const ballsBtn = document.getElementById('ballsBtn');
+
+    switch (e.key.toLowerCase()) {
+        case 'p': // assign key
+            buttonClickEffect(pauseBtn) // copy the function assigned to the key !ADD: break;  at the end!
+            isPaused = !isPaused;
+            pauseBtn.textContent = isPaused ? 'Resume' : 'Pause';
+            if (!isPaused) loop();
+            else cancelAnimationFrame(animationId);
+            break; // necessary for all of them
+        case 's':
+            buttonClickEffect(speedBtn);
+            speedMultiplier = speedMultiplier === 1 ? 2 : speedMultiplier === 2 ? 0.5 : 1;
+            speedBtn.textContent = `Speed: ${speedMultiplier}x`;
+            break;
+        case 'a':
+            buttonClickEffect(attractionBtn);
+            ATTRACTION.enabled = !ATTRACTION.enabled;
+            attractionBtn.textContent = `Attraction: ${ATTRACTION.enabled ? 'ON' : 'OFF'}`;
+            canvas.style.cursor = ATTRACTION.enabled ? 'none' : 'default';
+            break;
+        case 'g': // Toggle Gravity
+            buttonClickEffect(gravityBtn);
+            GRAVITY.enabled = !GRAVITY.enabled;
+            gravityBtn.textContent = `Gravity: ${GRAVITY.enabled ? 'ON' : 'OFF'}`;
+            break;
+        case 'b': // Toggle ball count
+            buttonClickEffect(ballsBtn);
+            ballCount = ballCount === 30 ? 50 : ballCount === 50 ? 100 : ballCount === 100 ? 10 : 30;
+            ballsBtn.textContent = `Amount: ${ballCount}`;
+            break;
+        case 'c': // Goto Contribute.html
+            window.location.href = 'contribute.html';
+            break;
+    }
 });
 
 // Start animation

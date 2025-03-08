@@ -88,6 +88,13 @@ button:hover {
   font-size: 14px;
 }
 
+/* Always-visible Return button on Info / Contributing page */
+#returnBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 /* Contribute Page Buttons */
 .contribute-btn {
   margin: 10px;
