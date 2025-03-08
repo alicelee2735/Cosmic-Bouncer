@@ -10,6 +10,7 @@ A cool physics and art simulation I created for fun. Perfect for learning HTML c
 
 ## Highlights
 
+<<<<<<< HEAD
 - 30+ colorful balls with random sizes and velocities
 - Realistic wall collisions with momentum preservation
 - Dynamic color changes on collisions
@@ -29,6 +30,16 @@ A cool physics and art simulation I created for fun. Perfect for learning HTML c
 - **Attraction Button or `A`**: Toggle mouse attraction with visual indicator
 - **Balls Button or `B`**: Cycle through ball counts (10, 30, 50, 100)
 - **Info / Contributing Button or `C`**: Visit the Info / Contributing page with guidelines and shortcuts
+=======
+- **Realistic wall collisions** with momentum preservation
+- **Dynamic color changes** on collisions
+- **Responsive design** that adapts to the window size of your browser/device
+- **Pause/Resume functionality** with interactive button
+- **Speed control** with variable multipliers (0.5x, 1x, 2x)
+- **Attraction to cursor** when mouse moves around the screen
+- **Gravity toggle** to apply downward force
+- **Contribute button** linking to community guidelines
+>>>>>>> 3d3562397e3210b5755f02c6b0d2f0bf83dc5591
 
 
 ## Quick Start
@@ -42,25 +53,34 @@ A cool physics and art simulation I created for fun. Perfect for learning HTML c
 
 Edit main.js to tweak the simulation:
 
+<<<<<<< HEAD
     ```js
     // Change number of balls
     let ballCount = 30; // ← Modify this number
+=======
+```js
+// Change number of balls
+while (balls.length < 30) { // ← Modify this number
 
-    // Modify size range
-    random(10, 20) // ← Modify ball sizes
+// Adjust speed ranges
+random(-7, 7) // ← Modify velocity values
+>>>>>>> 3d3562397e3210b5755f02c6b0d2f0bf83dc5591
 
-    // Change background fade effect
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
+// Modify size range
+random(10, 20) // ← Modify ball sizes
 
-    // Adjust speed multiplier
-    let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
+// Change background fade effect
+ctx.fillStyle = 'rgba(0, 0, 0, 0.25)' // ← Trail effect opacity
 
-    // Toggle gravity
-    const GRAVITY = { enabled: false, amount: 0.1 }; // ← Adjust gravity strength
+// Adjust speed multiplier
+let speedMultiplier = 1; // ← Modify default speed (0.5, 1, 2)
 
-    // Configure attraction
-    const attraction = { enabled: false, distance: 100, factor: 0.02 }; // ← Tweak range and force
-    ```
+// Toggle gravity
+const GRAVITY = { enabled: false, amount: 0.1 }; // ← Adjust gravity strength
+
+// Configure attraction
+const attraction = { enabled: false, distance: 100, factor: 0.02 }; // ← Tweak range and force
+```
 
 ## Controls
 - Pause/Resume Button: Toggle animation state

@@ -24,6 +24,9 @@ This file tracks planned features and improvements for the Cosmic Bouncer projec
 - [ ] **Color Themes**
   - Implement togglable themes (dark, neon, pastel) for background and balls.
   - Effort: ~2 hrs | Impact: Medium
+- [ ] **Keyboard Controls**
+  - Add shortcuts (e.g., `P` for pause, `G` for gravity).
+  - Effort: ~1 hr | Impact: Medium
 - [ ] **Customizable Settings**
   - Add sliders for `speedMultiplier`, `gravity.amount`, and `attraction.distance`.
   - Effort: ~3 hrs | Impact: Medium
