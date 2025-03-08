@@ -20,7 +20,8 @@ const FRAME_SAMPLES = 10;
 let lastFPSUpdate = performance.now();
 const FPS_UPDATE_INTERVAL = 100;
 const GRAVITY = { enabled: false, amount: 0.1 };
-const ATTRACTION = { enabled: false, distance: 100, factor: 0.02 };
+const ATTRACTION = { enabled: false, distance: 110, factor: 0.02 };
+const KeyPressed = {};
 
 // Utility functions
 const random = (min, max) => Math.random() * (max - min) + min;
@@ -152,7 +153,7 @@ const loop = () => {
     });
 
     drawAttraction();
-    drawFPS(); // Updated FPS display
+    drawFPS();
 
     if (!isPaused) animationId = requestAnimationFrame(loop);
 };
@@ -215,5 +216,57 @@ document.getElementById('contributeBtn')?.addEventListener('click', () => {
     window.location.href = 'contribute.html';
 });
 
-// Start animation
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+    if (KeyPressed[key]) return; // Prevent repeat actions while key is held
+    KeyPressed[key] = true;
+
+    const pauseBtn = document.getElementById('pauseResumeBtn');
+    const speedBtn = document.getElementById('speedBtn');
+    const attractionBtn = document.getElementById('attractionBtn');
+    const gravityBtn = document.getElementById('gravityBtn');
+    const ballsBtn = document.getElementById('ballsBtn');
+
+    switch (e.key.toLowerCase()) {
+        case 'p': // assign key
+            buttonClickEffect(pauseBtn) // copy the function assigned to the key !ADD: break;  at the end!
+            isPaused = !isPaused;
+            pauseBtn.textContent = isPaused ? 'Resume' : 'Pause';
+            if (!isPaused) loop();
+            else cancelAnimationFrame(animationId);
+            break; // necessary for all of them
+        case 's':
+            buttonClickEffect(speedBtn);
+            speedMultiplier = speedMultiplier === 1 ? 2 : speedMultiplier === 2 ? 0.5 : 1;
+            speedBtn.textContent = `Speed: ${speedMultiplier}x`;
+            break;
+        case 'a':
+            buttonClickEffect(attractionBtn);
+            ATTRACTION.enabled = !ATTRACTION.enabled;
+            attractionBtn.textContent = `Attraction: ${ATTRACTION.enabled ? 'ON' : 'OFF'}`;
+            canvas.style.cursor = ATTRACTION.enabled ? 'none' : 'default';
+            break;
+        case 'g':
+            buttonClickEffect(gravityBtn);
+            GRAVITY.enabled = !GRAVITY.enabled;
+            gravityBtn.textContent = `Gravity: ${GRAVITY.enabled ? 'ON' : 'OFF'}`;
+            break;
+        case 'b':
+            buttonClickEffect(ballsBtn);
+            ballCount = ballCount === 30 ? 50 : ballCount === 50 ? 100 : ballCount === 100 ? 10 : 30;
+            ballsBtn.textContent = `Amount: ${ballCount}`;
+            break;
+        case 'c':
+            window.location.href = 'contribute.html';
+            break;
+    }
+});
+
+// Reset KeyPressed status on key release
+document.addEventListener('keyup', (e) => {
+    KeyPressed[e.key.toLowerCase()] = false;
+});
+
+// Start animation 
 loop();

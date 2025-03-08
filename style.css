@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global Styles */ 
 body {
   background-color: #1a1a1a;
   color: #fff;
@@ -86,6 +86,13 @@ button:hover {
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   font-size: 14px;
+}
+
+/* Always-visible Return button on Info / Contributing page */
+#returnBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 /* Contribute Page Buttons */
